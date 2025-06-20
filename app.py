@@ -4,7 +4,7 @@ from torchvision import transforms, models
 from PIL import Image
 import os
 import torch.nn as nn
-model_path= "asl_resnet_model.pt"
+model_path= "asl_resnet_model2006.pt"
 # ---- Model Definition ----
 class ASLResNet101(nn.Module):
     def __init__(self, num_classes=29):
@@ -47,7 +47,7 @@ st.title("ASL Image Sequence Predictor")
 show_images = st.checkbox("Show uploaded images", value=False)
 uploaded_files = st.file_uploader("Upload ASL letter images in order", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
-model_path = "asl_resnet_model.pt"  # ✔️ Doit être placé dans le même dossier que ce fichier
+model_path = "asl_resnet_model2006.pt"  # ✔️ Doit être placé dans le même dossier que ce fichier
 class_names = [chr(ord('A') + i) for i in range(26)] + ['del', 'nothing', 'space']
 model = load_model(model_path)
 
